@@ -1,0 +1,5 @@
+[modules]
+  [modules.forms]
+    integration = "optional"
+    disableTemplate = true
+    state = "defer"
