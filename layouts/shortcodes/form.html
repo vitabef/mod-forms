@@ -44,6 +44,14 @@
                     <div class="invalid-feedback">{{ .validation_feedback.invalid }}</div>
                 {{ end }}
 
+                {{ if eq .type "tel" }}
+                    <input type="tel" class="form-control border-0" id="{{ .name }}" name="{{ .name }}"
+                           placeholder="{{ .placeholder }}" pattern="{{ .pattern }}"
+                           {{ if .required }}required{{ end }}>
+                    <div class="valid-feedback">{{ .validation_feedback.valid }}</div>
+                    <div class="invalid-feedback">{{ .validation_feedback.invalid }}</div>
+                {{ end }}
+
                 {{ if eq .type "textarea" }}
                     <textarea class="form-control border-0" id="{{ .name }}" name="{{ .name }}" rows="5"
                               placeholder="{{ .placeholder }}" {{ if .required }}required{{ end }}></textarea>
