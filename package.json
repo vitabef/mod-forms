@@ -1,6 +1,6 @@
 {
   "name": "@vitabef/mod-forms",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "A Hugo Bootstrap Forms module compatible with Hinode (WIP)",
   "keywords": [
