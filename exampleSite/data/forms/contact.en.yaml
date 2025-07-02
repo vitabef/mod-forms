@@ -1,0 +1,56 @@
+form:
+  id: "contactForm"
+  title: "Contact form"
+  submit_button_label: "Send"
+  toast_close_aria_label: "Close"
+  turnstile_site_key: "0x4AAAAAAAj_Tq5mqT4VUNs7"
+  success_toast_message: "Your message has been sent successfully!"
+  error_toast_message: "An error occurred while sending the message. Please try again."
+  fields:
+    - label: "Your name"
+      name: "name"
+      type: "text"
+      placeholder: "Enter your name"
+      required: true
+      validation_feedback:
+        invalid: "Please enter your name."
+    - label: "Your email"
+      name: "email"
+      type: "email"
+      placeholder: "Enter your email address"
+      pattern: "[^@\\s]+@[^@\\s]+\\.[^@\\s]+"
+      required: true
+      validation_feedback:
+        invalid: "Please enter a valid email address."
+    - label: "Your phone number (optional)"
+      name: "phone"
+      type: "tel"
+      placeholder: "Your phone number for questions"
+      pattern: "[0-9]+"
+      required: false
+      validation_feedback:
+        invalid: "Please enter a valid phone number."
+    - label: "Subject"
+      name: "subject"
+      type: "select"
+      required: true
+      options:
+        - value: ""
+          text: "Choose a subject"
+          disabled: true
+          selected: true
+        - value: "General inquiries"
+          text: "General inquiries"
+        - value: "Accounting and invoices"
+          text: "Accounting and invoices"
+        - value: "Press, marketing, partnerships"
+          text: "Press, marketing, partnerships"
+      validation_feedback:
+        invalid: "Please choose a subject."
+    - label: "Your message"
+      name: "message"
+      type: "textarea"
+      placeholder: "Write your message"
+      required: true
+      validation_feedback:
+        invalid: "Please enter your message."
