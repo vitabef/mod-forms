@@ -4,7 +4,7 @@ This repository contains the forms module for Hugo sites.
 
 ## Translation variables
 
-The form template expects a data file under `data/forms` with the following keys. Example German and English files are provided in `exampleSite/data/forms`.
+The form template expects a data file under `data/forms` with the following keys.
 
 ```
 form:
