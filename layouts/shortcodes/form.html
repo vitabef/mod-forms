@@ -3,8 +3,29 @@
     {{ errorf "Module 'forms' is not enabled for this page. Please add 'forms' to the 'modules' array in the frontmatter." }}
 {{ end }}
 
+{{ if lt (len .Params) 1 }}
+    {{ errorf "The form shortcode requires a form name argument." }}
+{{ end }}
+
 {{ $formName := .Get 0 }}
-{{ $form := index .Site.Data.forms $formName }}
+{{ if not $formName }}
+    {{ errorf "The form shortcode requires a non-empty form name argument." }}
+{{ end }}
+
+{{ $forms := dict }}
+{{ if ge hugo.Version "0.156.0" }}
+    {{ $forms = index hugo.Data "forms" }}
+{{ else }}
+    {{ $forms = .Site.Data.forms }}
+{{ end }}
+{{ if not $forms }}
+    {{ errorf "The form shortcode requires form data under data/forms." }}
+{{ end }}
+
+{{ $form := index $forms $formName }}
+{{ if not $form }}
+    {{ errorf "The form shortcode could not find form %q in data/forms." $formName }}
+{{ end }}
 
 
 <h2 class="heading" id="form-heading">{{ $form.form.title }}</h2>
